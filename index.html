@@ -11,7 +11,7 @@
   <!-- Google Fonts: Space Mono & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -21,9 +21,14 @@
           fontFamily: {
             sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             mono: ['Space Mono', 'monospace'],
+            code: ['JetBrains Mono', 'monospace'],
           },
           colors: {
             nothingRed: '#D71921',
+            nothingRedBright: '#FF2A33',
+            cfOrange: '#F38020',
+            appleLightBg: '#EAEAEB',
+            appleLightCard: '#F4F4F5',
           }
         }
       }
@@ -31,20 +36,28 @@
   </script>
 
   <style>
-    body {
-      transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth Apple Ease Palette Transitions */
+    :root {
+      color-scheme: light dark;
     }
 
+    body {
+      transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Dark Mode Defaults */
     html.dark body {
       background-color: #09090B;
       color: #E4E4E7;
     }
 
+    /* Soft Muted Warm Apple Light Mode Defaults (No harsh glare) */
     html:not(.dark) body {
-      background-color: #F4F4F5;
-      color: #18181B;
+      background-color: #EAEAEB;
+      color: #1C1C1E;
     }
 
+    /* Subtle Grid Overlay */
     html.dark .bg-grid {
       background-size: 32px 32px;
       background-image: 
@@ -58,37 +71,43 @@
         linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
     }
 
+    /* Glassmorphism Cards with Fluid Theme Transitions */
     html.dark .glass-card {
       background: rgba(18, 18, 22, 0.75);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
     }
     html.dark .glass-card:hover {
       border-color: rgba(255, 255, 255, 0.2);
     }
 
     html:not(.dark) .glass-card {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(244, 244, 245, 0.85);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.04);
+      transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
     }
     html:not(.dark) .glass-card:hover {
-      border-color: rgba(0, 0, 0, 0.2);
+      border-color: rgba(0, 0, 0, 0.18);
     }
 
     #glyph-canvas {
       cursor: crosshair;
     }
 
+    /* Modal Backdrop */
     .modal-backdrop {
       background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
+    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -104,7 +123,7 @@
 <body class="font-sans bg-grid min-h-screen relative pb-28 antialiased">
 
   <!-- Top Status Bar & Theme Toggle -->
-  <div class="w-full border-b border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#0C0C0E]/80 backdrop-blur-md px-4 sm:px-8 py-2.5 text-xs font-mono flex items-center justify-between text-zinc-600 dark:text-zinc-400 sticky top-0 z-40 transition-colors">
+  <div class="w-full border-b border-black/10 dark:border-white/10 bg-[#EAEAEB]/80 dark:bg-[#0C0C0E]/80 backdrop-blur-md px-4 sm:px-8 py-2.5 text-xs font-mono flex items-center justify-between text-zinc-600 dark:text-zinc-400 sticky top-0 z-40 transition-colors duration-500">
     <div class="flex items-center gap-2.5">
       <span class="relative flex h-2 w-2">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -113,6 +132,8 @@
       <span class="text-zinc-900 dark:text-zinc-200 font-medium">Dibya Prakash Bishoyi</span>
       <span class="text-zinc-400 dark:text-zinc-600 hidden sm:inline">•</span>
       <span class="hidden sm:inline">Bangalore, IN</span>
+      <span class="text-zinc-400 dark:text-zinc-600 hidden md:inline">•</span>
+      <span class="hidden md:inline font-code text-[11px]" id="ping-counter">18ms latency</span>
     </div>
 
     <div class="flex items-center gap-3">
@@ -124,7 +145,7 @@
 
       <!-- Theme Switcher -->
       <button onclick="toggleTheme()" class="p-1.5 rounded-lg bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-all" title="Toggle Light/Dark Theme">
-        <svg id="theme-icon-sun" class="w-4 h-4 hidden text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z"/></svg>
+        <svg id="theme-icon-sun" class="w-4 h-4 hidden text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z"/></svg>
         <svg id="theme-icon-moon" class="w-4 h-4 text-zinc-700 dark:text-zinc-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
       </button>
 
@@ -237,9 +258,14 @@
 
           <div class="pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-mono">
             <span class="text-zinc-500 dark:text-zinc-400">openprism.pages.dev</span>
-            <a href="https://openprism.pages.dev" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-zinc-900 dark:text-white rounded-lg transition-all">
-              Visit Site ↗
-            </a>
+            <div class="flex items-center gap-2">
+              <button onclick="openModal('modal-openprism')" class="px-3 py-1.5 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-zinc-900 dark:text-white rounded-lg transition-all">
+                Details
+              </button>
+              <a href="https://openprism.pages.dev" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-nothingRed text-white rounded-lg hover:bg-nothingRedBright transition-all">
+                Visit Site ↗
+              </a>
+            </div>
           </div>
         </div>
 
@@ -307,9 +333,14 @@
 
           <div class="pt-4 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-xs font-mono">
             <span class="text-zinc-500 dark:text-zinc-400">Python / PyQt6</span>
-            <button onclick="toggleCardDetails('milele-details', this)" class="px-3 py-1.5 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-zinc-900 dark:text-white rounded-lg transition-all">
-              Expand Specs ↓
-            </button>
+            <div class="flex items-center gap-2">
+              <button onclick="openModal('modal-milele')" class="px-3 py-1.5 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-zinc-900 dark:text-white rounded-lg transition-all">
+                Modal Specs
+              </button>
+              <button onclick="toggleCardDetails('milele-details', this)" class="px-3 py-1.5 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-zinc-900 dark:text-white rounded-lg transition-all">
+                Expand ↓
+              </button>
+            </div>
           </div>
         </div>
 
@@ -367,6 +398,52 @@
 
   </main>
 
+  <!-- MODAL 1: OPENPRISM DETAILS -->
+  <div id="modal-openprism" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-lg w-full rounded-2xl p-6 sm:p-8 space-y-4 border border-black/20 dark:border-white/20 relative">
+      <div class="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
+        <div>
+          <span class="text-xs font-mono text-nothingRed font-bold">PROJECT OVERVIEW</span>
+          <h2 class="text-2xl font-bold text-zinc-900 dark:text-white">OpenPrism</h2>
+        </div>
+        <button onclick="closeModal('modal-openprism')" class="text-zinc-400 hover:text-zinc-900 dark:hover:text-white text-lg font-mono">✕</button>
+      </div>
+
+      <div class="space-y-3 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+        <p><strong class="text-zinc-900 dark:text-white">Objective:</strong> Build a zero-bias, transparent verification platform where users can submit claim text or news screenshots.</p>
+        <p><strong class="text-white bg-nothingRed/80 px-2 py-0.5 rounded text-xs font-mono inline-block">Status: Active MVP Development</strong></p>
+        <p><strong class="text-zinc-900 dark:text-white">Core Pillars:</strong> Absolute neutrality, source transparency, direct claim debunking without ideological tint.</p>
+      </div>
+
+      <div class="pt-4 border-t border-black/10 dark:border-white/10 flex justify-end gap-2">
+        <button onclick="closeModal('modal-openprism')" class="px-4 py-2 bg-black/5 dark:bg-white/10 text-zinc-900 dark:text-white font-mono text-xs rounded-xl hover:bg-black/10 dark:hover:bg-white/20">Close</button>
+        <a href="https://openprism.pages.dev" target="_blank" class="px-4 py-2 bg-nothingRed text-white font-mono text-xs rounded-xl hover:bg-nothingRedBright">Visit Site ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: MILELE SPECS -->
+  <div id="modal-milele" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-lg w-full rounded-2xl p-6 sm:p-8 space-y-4 border border-black/20 dark:border-white/20 relative">
+      <div class="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
+        <div>
+          <span class="text-xs font-mono text-indigo-500 font-bold">DESKTOP SUITE SPECS</span>
+          <h2 class="text-2xl font-bold text-zinc-900 dark:text-white">Milele Utility App</h2>
+        </div>
+        <button onclick="closeModal('modal-milele')" class="text-zinc-400 hover:text-zinc-900 dark:hover:text-white text-lg font-mono">✕</button>
+      </div>
+
+      <div class="space-y-3 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+        <p><strong class="text-zinc-900 dark:text-white">Tech Stack:</strong> Python 3, PyQt6 (GUI Framework), MySQL relational database integration.</p>
+        <p><strong class="text-zinc-900 dark:text-white">Key Features:</strong> Live Weather API feed, song lyrics lookup engine, and persistent user profile management with MySQL back-end.</p>
+      </div>
+
+      <div class="pt-4 border-t border-black/10 dark:border-white/10 flex justify-end">
+        <button onclick="closeModal('modal-milele')" class="px-4 py-2 bg-black/5 dark:bg-white/10 text-zinc-900 dark:text-white font-mono text-xs rounded-xl hover:bg-black/10 dark:hover:bg-white/20">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- COMMAND PALETTE MODAL (Cmd + K) -->
   <div id="command-palette" class="fixed inset-0 modal-backdrop z-50 flex items-start justify-center pt-20 p-4 hidden">
     <div class="glass-card max-w-lg w-full rounded-2xl p-4 space-y-3 border border-black/20 dark:border-white/20 relative font-mono text-xs">
@@ -406,7 +483,7 @@
   </div>
 
   <script>
-    // Theme Switcher Engine
+    // 1. Theme Switcher Engine with Smooth Palette Curve
     function toggleTheme() {
       const html = document.documentElement;
       const sunIcon = document.getElementById('theme-icon-sun');
@@ -432,7 +509,7 @@
       document.getElementById('theme-icon-moon').classList.add('hidden');
     }
 
-    // Tab Switcher
+    // 2. Tab Switcher
     function switchTab(tab) {
       ['projects', 'experience'].forEach(t => {
         const view = document.getElementById(`view-${t}`);
@@ -447,7 +524,11 @@
       });
     }
 
-    // Skill Filter Engine
+    // 3. Modals Manager
+    function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+    // 4. Skill Filter Engine
     function filterSkills(category) {
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('bg-black/10', 'dark:bg-white/10', 'text-zinc-900', 'dark:text-white');
@@ -466,7 +547,7 @@
       });
     }
 
-    // Toggle Bento Card Details
+    // 5. Toggle Bento Card Details
     function toggleCardDetails(id, btn) {
       const el = document.getElementById(id);
       if (el.classList.contains('hidden')) {
@@ -474,11 +555,11 @@
         btn.innerText = 'Hide Specs ↑';
       } else {
         el.classList.add('hidden');
-        btn.innerText = 'Expand Specs ↓';
+        btn.innerText = 'Expand ↓';
       }
     }
 
-    // Command Palette (Cmd + K)
+    // 6. Command Palette (Cmd + K)
     function toggleCommandPalette() {
       const palette = document.getElementById('command-palette');
       palette.classList.toggle('hidden');
@@ -517,7 +598,13 @@
       showToast(`Copied: ${email}`);
     }
 
-    // Dot Matrix Canvas Drawer
+    // 7. Dynamic Ping Simulator
+    setInterval(() => {
+      const ping = Math.floor(Math.random() * (22 - 14 + 1)) + 14;
+      document.getElementById('ping-counter').innerText = `${ping}ms latency`;
+    }, 4000);
+
+    // 8. Dot Matrix Canvas Drawer
     const canvas = document.getElementById('glyph-canvas');
     const ctx = canvas.getContext('2d');
     const cols = 11, rows = 7;
