@@ -5,10 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dibya Prakash Bishoyi | Portfolio</title>
 
+  <!-- Open Graph & Social Preview -->
+  <meta property="og:title" content="Dibya Prakash Bishoyi | Portfolio" />
+  <meta property="og:description" content="B.Com (Hons) student bridging commerce, systems architecture, web platforms, desktop software, and community management." />
+  <meta property="og:type" content="website" />
+
+  <!-- Minimalist Red Dot Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23D71921'/></svg>" />
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts: Space Mono & Inter -->
+  <!-- Google Fonts: Space Mono, JetBrains Mono, & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -36,7 +44,7 @@
   </script>
 
   <style>
-    /* Smooth Apple Ease Palette Transitions */
+    /* Smooth Palette Curve Transitions */
     :root {
       color-scheme: light dark;
     }
@@ -51,7 +59,7 @@
       color: #E4E4E7;
     }
 
-    /* Soft Muted Warm Apple Light Mode Defaults (No harsh glare) */
+    /* Soft Muted Warm Apple Light Mode Defaults */
     html:not(.dark) body {
       background-color: #EAEAEB;
       color: #1C1C1E;
@@ -71,7 +79,7 @@
         linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
     }
 
-    /* Glassmorphism Cards with Fluid Theme Transitions */
+    /* Glassmorphism Cards */
     html.dark .glass-card {
       background: rgba(18, 18, 22, 0.75);
       backdrop-filter: blur(16px);
@@ -170,7 +178,7 @@
           </h1>
 
           <p class="text-zinc-600 dark:text-zinc-300 text-base leading-relaxed">
-            Pursuing <span class="text-zinc-900 dark:text-white font-semibold bg-black/5 dark:bg-white/10 px-2 py-0.5 rounded">B.Com (Hons)</span> in Bangalore. Bridging commerce and finance with software engineering, web platforms, community management, and factual information verification.
+            Pursuing <span class="text-zinc-900 dark:text-white font-semibold bg-black/5 dark:bg-white/10 px-2 py-0.5 rounded">B.Com (Hons)</span> in Bangalore. Specializing in systems architecture, zero-persistence networking, web platforms, and community ecosystem leadership.
           </p>
 
           <!-- Quick Action Buttons -->
@@ -221,6 +229,7 @@
       <div id="filter-container" class="flex flex-wrap items-center justify-center gap-1.5 text-[11px] font-mono text-zinc-500">
         <span class="mr-1">Filter:</span>
         <button onclick="filterSkills('all')" class="filter-btn active-filter px-2.5 py-1 rounded-lg bg-black/10 dark:bg-white/10 text-zinc-900 dark:text-white">All</button>
+        <button onclick="filterSkills('security')" class="filter-btn px-2.5 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5">Security & Systems</button>
         <button onclick="filterSkills('web')" class="filter-btn px-2.5 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5">Web Dev</button>
         <button onclick="filterSkills('python')" class="filter-btn px-2.5 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5">Python & GUIs</button>
         <button onclick="filterSkills('community')" class="filter-btn px-2.5 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5">Community</button>
@@ -231,6 +240,44 @@
     <!-- TAB 1: PROJECTS -->
     <div id="view-projects" class="space-y-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        <!-- NoMesh (FLAGSHIP BENTO HERO CARD) -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between skill-card md:col-span-2 border-l-2 border-l-nothingRed" data-category="security">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-mono text-nothingRed font-bold uppercase tracking-wider">Systems Architecture & Privacy</span>
+                <span class="text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full">● Live (~40 visits/day)</span>
+              </div>
+              <span class="text-[10px] font-mono text-zinc-500">Released Aug 20, 2026</span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-zinc-900 dark:text-white mb-2">NoMesh</h3>
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed mb-4">
+              A privacy-first, zero-persistence browser communication mesh engineered with an ephemeral threat model. Features encrypted WebRTC audio calling, real-time WebSocket messaging relays, edge radio reverse-proxies, and memory-only storage that eliminates data-at-rest vulnerabilities.
+            </p>
+
+            <!-- Technical Highlights Tags -->
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="text-[11px] font-mono bg-black/5 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 px-2.5 py-1 rounded-md border border-black/5 dark:border-white/5">Zero-Persistence RAM</span>
+              <span class="text-[11px] font-mono bg-black/5 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 px-2.5 py-1 rounded-md border border-black/5 dark:border-white/5">DTLS-SRTP WebRTC Audio</span>
+              <span class="text-[11px] font-mono bg-black/5 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 px-2.5 py-1 rounded-md border border-black/5 dark:border-white/5">Cloudflare Edge Reverse-Streaming</span>
+              <span class="text-[11px] font-mono bg-black/5 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 px-2.5 py-1 rounded-md border border-black/5 dark:border-white/5">Self-Destruct Burner Payloads</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-black/5 dark:border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+            <span class="text-zinc-500 dark:text-zinc-400">nomesh.pages.dev</span>
+            <div class="flex items-center gap-2">
+              <button onclick="openModal('modal-nomesh')" class="px-3.5 py-1.5 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-zinc-900 dark:text-white rounded-lg transition-all">
+                Architecture Specs ↗
+              </button>
+              <a href="https://nomesh.pages.dev" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 bg-nothingRed text-white rounded-lg hover:bg-nothingRedBright transition-all">
+                Launch Mesh ↗
+              </a>
+            </div>
+          </div>
+        </div>
 
         <!-- OpenPrism -->
         <div class="glass-card rounded-2xl p-6 flex flex-col justify-between skill-card" data-category="web">
@@ -351,6 +398,15 @@
     <div id="view-experience" class="space-y-4 hidden">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         
+        <!-- Systems Architecture & Security Role Card -->
+        <div class="glass-card rounded-2xl p-6 md:col-span-3 space-y-3 skill-card border-l-2 border-l-nothingRed" data-category="security">
+          <span class="text-xs font-mono text-nothingRed font-semibold uppercase block">Core Specialization</span>
+          <h3 class="text-xl font-bold text-zinc-900 dark:text-white">Full-Stack & Systems Architecture</h3>
+          <p class="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed">
+            Architecting privacy-first peer-to-peer applications, zero-persistence volatile memory states, edge compute serverless reverse proxies, and low-latency WebSocket communication layers.
+          </p>
+        </div>
+
         <!-- Discord Communities -->
         <div class="glass-card rounded-2xl p-6 md:col-span-2 space-y-3 skill-card" data-category="community">
           <span class="text-xs font-mono text-indigo-600 dark:text-indigo-400 font-semibold uppercase block">Community Management</span>
@@ -365,10 +421,10 @@
           <span class="text-xs font-mono text-amber-600 dark:text-amber-400 font-semibold uppercase block">Skill Set</span>
           <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Technical & Business</h3>
           <ul class="text-xs font-mono text-zinc-600 dark:text-zinc-300 space-y-2 pt-1">
-            <li class="flex justify-between"><span>App Dev</span> <span class="text-zinc-400">Python / PyQt6</span></li>
-            <li class="flex justify-between"><span>Databases</span> <span class="text-zinc-400">MySQL</span></li>
-            <li class="flex justify-between"><span>Web Hosting</span> <span class="text-zinc-400">Cloudflare Pages</span></li>
-            <li class="flex justify-between"><span>Marketing</span> <span class="text-zinc-400">Discord / Reddit</span></li>
+            <li class="flex justify-between"><span>Systems</span> <span class="text-zinc-400">WebRTC / Supabase</span></li>
+            <li class="flex justify-between"><span>Edge</span> <span class="text-zinc-400">Cloudflare Workers</span></li>
+            <li class="flex justify-between"><span>Desktop</span> <span class="text-zinc-400">Python / PyQt6</span></li>
+            <li class="flex justify-between"><span>Databases</span> <span class="text-zinc-400">MySQL / In-Memory</span></li>
           </ul>
         </div>
 
@@ -398,7 +454,63 @@
 
   </main>
 
-  <!-- MODAL 1: OPENPRISM DETAILS -->
+  <!-- MODAL: NOMESH ARCHITECTURE & THREAT MODEL (Deep Spec Drawer) -->
+  <div id="modal-nomesh" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-2xl w-full rounded-2xl p-6 sm:p-8 space-y-5 border border-black/20 dark:border-white/20 relative max-h-[88vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
+        <div>
+          <span class="text-xs font-mono text-nothingRed font-bold">SYSTEMS ARCHITECTURE & THREAT MODEL</span>
+          <h2 class="text-2xl font-bold text-zinc-900 dark:text-white">NoMesh (nomesh.pages.dev)</h2>
+        </div>
+        <button onclick="closeModal('modal-nomesh')" class="text-zinc-400 hover:text-zinc-900 dark:hover:text-white text-lg font-mono">✕</button>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans">
+        <div class="p-3 bg-black/5 dark:bg-white/5 rounded-xl font-mono text-xs border border-black/5 dark:border-white/10">
+          <p><strong class="text-zinc-900 dark:text-white">Role:</strong> Full-Stack & Systems Architecture</p>
+          <p><strong class="text-zinc-900 dark:text-white">Live Metrics:</strong> Developed Aug 20, 2026 • ~40 daily visits • Privacy First Approach</p>
+          <p><strong class="text-zinc-900 dark:text-white">Source Code:</strong> Available on demand via email verification (<a href="mailto:dibyaprakash@proton.me" class="underline hover:text-nothingRed">dibyaprakash@proton.me</a>)</p>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="font-bold text-zinc-900 dark:text-white uppercase font-mono text-xs text-nothingRed">Security Potential & Threat Model Framing</h4>
+          <ul class="list-disc pl-5 space-y-1.5 font-mono text-xs text-zinc-600 dark:text-zinc-300">
+            <li><strong>Zero-Persistence RAM Architecture:</strong> Eliminates data-at-rest vulnerabilities by storing chat sessions, voice notes, and media exclusively in volatile browser memory (<code class="text-zinc-900 dark:text-white">sessionStorage</code> and JS arrays) with zero database persistence.</li>
+            <li><strong>Serverless Reverse Streaming Proxy:</strong> Hides third-party broadcast sources through Cloudflare Edge Workers (<code class="text-zinc-900 dark:text-white">/functions/api/radio.js</code>), preventing campus firewalls (e.g., Sophos/Cyberoam) from inspecting stream origins or packet metadata.</li>
+            <li><strong>Encrypted P2P Media Channels:</strong> Leverages WebRTC with mandatory DTLS-SRTP encryption for end-to-end encrypted real-time voice calls directly between client browsers.</li>
+            <li><strong>Two-Way Ephemeral Invalidation:</strong> Instant simultaneous client-side message deletion using real-time WebSocket broadcast channels to invalidate shared state across peers.</li>
+            <li><strong>Self-Destruct Burner Payloads:</strong> Configurable TTL (time-to-live) and playback limits (1x/2x/3x) for voice notes and media that trigger automatic client-side destruction upon consumption.</li>
+            <li><strong>Subnet Channel Isolation:</strong> Developer channels gated by passkey authentication to separate general campus traffic from administrative relays.</li>
+            <li><strong>Emergency Cloaking Trigger:</strong> Rapid double-tap escape handler (2x ESC) that wipes active session cache and executes an immediate browser redirect.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-2 pt-2 border-t border-black/10 dark:border-white/10">
+          <h4 class="font-bold text-zinc-900 dark:text-white uppercase font-mono text-xs">Key Technical Implementations</h4>
+          <ul class="list-disc pl-5 space-y-1 font-mono text-xs text-zinc-600 dark:text-zinc-300">
+            <li><strong>Real-Time Mesh Messaging:</strong> Low-latency Supabase WebSocket broadcast relays for direct chats and public lounge subnets.</li>
+            <li><strong>In-Memory Fast Swapping:</strong> Zero-lag conversation switching using pre-cached memory maps to eliminate rendering delays.</li>
+            <li><strong>WebRTC Voice Calling:</strong> Live HTML5 Canvas audio spectrum visualization, dual-source volume analysis, and bidirectional hardware mute controls.</li>
+            <li><strong>Background Attention Triggers:</strong> Haptic poke system with a 30s rate limiter and background tab title cycling to notify unfocused users.</li>
+            <li><strong>Interactive Media Sharing:</strong> In-line voice notes with scrubbable waveforms, document transfers (&lt;2 MB), and dynamic Google/Apple Maps location cards.</li>
+            <li><strong>Live Network Diagnostics:</strong> Real-time round-trip latency and network health ping monitor with visual status thresholds.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-black/10 dark:border-white/10 flex flex-wrap justify-between items-center gap-3">
+        <button onclick="copyEmail('dibyaprakash@proton.me')" class="text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:hover:text-white">
+          Request Source via Email ↗
+        </button>
+        <div class="flex gap-2">
+          <button onclick="closeModal('modal-nomesh')" class="px-4 py-2 bg-black/5 dark:bg-white/10 text-zinc-900 dark:text-white font-mono text-xs rounded-xl hover:bg-black/10 dark:hover:bg-white/20">Close</button>
+          <a href="https://nomesh.pages.dev" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-nothingRed text-white font-mono text-xs rounded-xl hover:bg-nothingRedBright">Launch NoMesh ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: OPENPRISM DETAILS -->
   <div id="modal-openprism" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4 hidden">
     <div class="glass-card max-w-lg w-full rounded-2xl p-6 sm:p-8 space-y-4 border border-black/20 dark:border-white/20 relative">
       <div class="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
@@ -422,7 +534,7 @@
     </div>
   </div>
 
-  <!-- MODAL 2: MILELE SPECS -->
+  <!-- MODAL: MILELE SPECS -->
   <div id="modal-milele" class="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4 hidden">
     <div class="glass-card max-w-lg w-full rounded-2xl p-6 sm:p-8 space-y-4 border border-black/20 dark:border-white/20 relative">
       <div class="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-3">
@@ -455,14 +567,18 @@
       <input type="text" id="cmd-input" placeholder="Type a command or jump to..." 
              class="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-3 py-2 text-zinc-900 dark:text-white focus:outline-none">
 
-      <div id="cmd-results" class="space-y-1 max-h-48 overflow-y-auto pt-1">
-        <button onclick="executeCommand('email')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 flex justify-between text-zinc-800 dark:text-zinc-200">
-          <span>Copy Email Address</span>
-          <span class="text-zinc-400">dibyaprakash@proton.me</span>
+      <div id="cmd-results" class="space-y-1 max-h-56 overflow-y-auto pt-1">
+        <button onclick="executeCommand('nomesh')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 flex justify-between text-zinc-800 dark:text-zinc-200">
+          <span>Launch NoMesh (P2P Privacy Mesh)</span>
+          <span class="text-zinc-400">nomesh.pages.dev</span>
         </button>
         <button onclick="executeCommand('openprism')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 flex justify-between text-zinc-800 dark:text-zinc-200">
           <span>Visit OpenPrism Platform</span>
           <span class="text-zinc-400">openprism.pages.dev</span>
+        </button>
+        <button onclick="executeCommand('email')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 flex justify-between text-zinc-800 dark:text-zinc-200">
+          <span>Copy Email Address</span>
+          <span class="text-zinc-400">dibyaprakash@proton.me</span>
         </button>
         <button onclick="executeCommand('github')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 flex justify-between text-zinc-800 dark:text-zinc-200">
           <span>Open GitHub Profile</span>
@@ -580,6 +696,7 @@
 
     function executeCommand(cmd) {
       toggleCommandPalette();
+      if (cmd === 'nomesh') window.open('https://nomesh.pages.dev', '_blank');
       if (cmd === 'email') copyEmail('dibyaprakash@proton.me');
       if (cmd === 'openprism') window.open('https://openprism.pages.dev', '_blank');
       if (cmd === 'github') window.open('https://github.com/simpcorp', '_blank');
