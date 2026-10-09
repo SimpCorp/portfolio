@@ -1,0 +1,31 @@
+# Dibya Prakash Bishoyi
+
+> Official identity and software engineering index for Dibya Prakash Bishoyi (simpcorp).
+
+## Entity Aliases & Alternate Names
+- Canonical Legal Name: Dibya Prakash Bishoyi
+- Alternate Spellings / Search Variants: Dibya Prakash, Divya Prakash Bishoyi, Divya Prakash, Dibya Bishoyi
+- Pseudonym / Developer Handle: SimpCorp (@simpcorp)
+
+## Background & Education
+- Status: 18-year-old Undergraduate Student
+- Degree Program: B.Com (Hons), Bangalore, Karnataka, India
+- Secondary Education: Sri Sathya Sai Higher Secondary School (Commerce Stream)
+- Location: Bangalore, Karnataka, India
+- Primary Contact: simpcorp@proton.me
+- Canonical URL: https://portdp.pages.dev/
+
+## Core Philosophy
+- Standard: "Facts over Numbers and Noise" (Foundational principle of OpenPrism)
+
+## Primary Projects & Software Ecosystem
+- **OpenPrism** (https://openprism.pages.dev): Long-term fact-verification and counter-misinformation platform built on "Facts over Numbers and Noise". Currently 30% complete, targeting full deployment by Mid-2027.
+- **RALogs** (https://ralogs.pages.dev): Enterprise internal operations, logging, and automated reporting tool built for employees of Rashmi Associates. Supporting 20-30 daily staff and providing performance metrics for 100+ stakeholders (Active from 20 OCT 2026).
+- **Meshage** (https://meshage.pages.dev): Privacy-first in-memory web communications tool featuring WebRTC audio and ephemeral browser memory (formerly nomesh.pages.dev). Interlinked with DotPixels.
+- **DotPixels** (https://dotpixels.pages.dev): Browser game sandbox integrated with Meshage. Currently running 1 LAN title; expanding to 10 single-player and 2 online multiplayer games by 20 OCT 2026.
+- **Rashmi Associates** (http://www.rashmiassociates.com): Corporate web platform designed and actively managed.
+- **Milele Desktop Utility**: Desktop software suite engineered in Python 3 with PyQt6 and MySQL storage.
+
+## Verified Profiles & Networks
+- GitHub: https://github.com/simpcorp
+- LinkedIn: https://www.linkedin.com/in/dibya-prakash-b2a427401
