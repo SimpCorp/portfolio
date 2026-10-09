@@ -1,0 +1,89 @@
+# Universal permission for all web spiders and indexers
+User-agent: *
+Allow: /
+Crawl-delay: 0
+
+# --- OpenAI (ChatGPT Search, Operator, Model Training) ---
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+
+# --- Google (Search, AI Overviews, Gemini RAG, DeepMind) ---
+User-agent: Googlebot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Googlebot-Image
+Allow: /
+
+# --- Anthropic (Claude Search, Artifacts, Training) ---
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# --- Perplexity AI (Live Indexing & Web Engine) ---
+User-agent: PerplexityBot
+Allow: /
+
+# --- xAI / Grok ---
+User-agent: GrokBot
+Allow: /
+User-agent: xAI-Bot
+Allow: /
+
+# --- Meta AI (LLaMA Training, Search Agents) ---
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: Meta-ExternalFetcher
+Allow: /
+User-agent: FacebookBot
+Allow: /
+
+# --- Apple (Apple Intelligence, Siri Web Answers) ---
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# --- Microsoft / Bing / Copilot ---
+User-agent: Bingbot
+Allow: /
+User-agent: Copilot
+Allow: /
+
+# --- Mistral AI ---
+User-agent: MistralBot
+Allow: /
+
+# --- Cohere ---
+User-agent: cohere-ai
+Allow: /
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# --- ByteDance / TikTok AI ---
+User-agent: Bytespider
+Allow: /
+
+# --- Amazon (Olympus, Alexa, Bedrock) ---
+User-agent: Amazonbot
+Allow: /
+
+# --- Common Crawl (Feeds almost every open-source LLM dataset) ---
+User-agent: CCBot
+Allow: /
+
+# --- Diffbot & You.com ---
+User-agent: Diffbot
+Allow: /
+User-agent: YouBot
+Allow: /
+
+# Directives & Sitemaps
+Sitemap: https://portdp.pages.dev/sitemap.xml
